@@ -1,20 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as Mcomp from './styled';
 
 export default function Groups() {
   return (
-    <View style={styles.container}>
-      <Text>Groups works!!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Mcomp.Container>
+      <Mcomp.Title>Groups works with styled-components!!</Mcomp.Title>
+    </Mcomp.Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
