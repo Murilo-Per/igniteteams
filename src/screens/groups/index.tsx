@@ -1,9 +1,10 @@
-import * as Mcomp from './styled';
+import Header from '@components/header';
+import * as Mcomp from './styles';
 
 export default function Groups() {
   return (
     <Mcomp.Container>
-      <Mcomp.Title>Groups works with styled-components!!</Mcomp.Title>
+      <Header title='Turmas' />
     </Mcomp.Container>
   );
 }
