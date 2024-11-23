@@ -1,14 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
+import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import { ThemeProvider } from 'styled-components';
 import theme from './src/themes';
 
 import Groups from '@screens/groups';
+import { Loading } from 'src/components/loading';
 
 export default function App() {
+  const [fontLoaded, error] = useFonts({
+    Roboto_400Regular, Roboto_700Bold
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <StatusBar />
-      <Groups />
+      {fontLoaded ? <Groups /> : <Loading />}
     </ThemeProvider>
   );
 };
