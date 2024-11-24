@@ -16,6 +16,9 @@
       "@themes/*": [
         "./src/themes/*"
       ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
     },
   },
 }
