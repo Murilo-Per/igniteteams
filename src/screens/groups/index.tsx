@@ -1,12 +1,35 @@
+import { useState } from 'react';
+import { FlatList } from 'react-native';
+
+import { Container } from './styles';
+
+import Highlight from '@components/Highlight';
+import GroupCard from '@components/GroupCard';
 import Header from '@components/Header';
-import * as Mcomp from './styles';
-import { Highlight } from '@components/Highlight';
+
 
 export default function Groups() {
+  const [groups, setGroups] = useState<string[]>(['Amigos Facul', 'Familia', 'Trabalho']);
+
   return (
-    <Mcomp.Container>
+    <Container>
       <Header />
-      <Highlight title='Turmas' subTitle='Reuna os amigos para começar a diversão!' />
-    </Mcomp.Container>
+
+      <Highlight
+        title='Turmas'
+        subTitle='Reuna os amigos para começar a diversão!'
+      />
+
+      <FlatList
+        data={groups}
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
+          <GroupCard
+            caption={item}
+          />
+        )}
+      />
+
+    </Container>
   );
 }

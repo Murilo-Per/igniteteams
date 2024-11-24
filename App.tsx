@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import theme from '@themes/index';
 import Groups from '@screens/groups';
-import Loading from '@components/loading';
+import Loading from '@components/Loading';
 
 export default function App() {
   const [fontLoaded, error] = useFonts({
