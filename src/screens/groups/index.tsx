@@ -1,4 +1,4 @@
-import Header from '@components/header';
+import Header from '@components/Header';
 import * as Mcomp from './styles';
 import { Highlight } from '@components/Highlight';
 
