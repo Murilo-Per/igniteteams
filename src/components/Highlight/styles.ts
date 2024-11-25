@@ -6,7 +6,7 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  margin-top: 36px;
+  margin-top: 24px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   color: ${({ theme }) => theme.COLORS.WHITE};
   font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;

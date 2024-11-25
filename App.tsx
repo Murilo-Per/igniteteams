@@ -3,8 +3,9 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/
 import { ThemeProvider } from 'styled-components';
 
 import theme from '@themes/index';
-import Groups from '@screens/groups';
+import Groups from '@screens/Groups';
 import Loading from '@components/Loading';
+import NewGroup from '@screens/NewGroup';
 
 export default function App() {
   const [fontLoaded, error] = useFonts({
@@ -19,6 +20,7 @@ export default function App() {
         translucent
       />
       {fontLoaded ? <Groups /> : <Loading />}
+      {/* {fontLoaded ? <NewGroup /> : <Loading />} */}
     </ThemeProvider>
   );
 };
