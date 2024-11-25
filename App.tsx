@@ -6,6 +6,7 @@ import theme from '@themes/index';
 import Groups from '@screens/Groups';
 import Loading from '@components/Loading';
 import NewGroup from '@screens/NewGroup';
+import Players from '@screens/Players';
 
 export default function App() {
   const [fontLoaded, error] = useFonts({
@@ -19,8 +20,9 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      {fontLoaded ? <Groups /> : <Loading />}
+      {/* {fontLoaded ? <Groups /> : <Loading />} */}
       {/* {fontLoaded ? <NewGroup /> : <Loading />} */}
+      {fontLoaded ? <Players /> : <Loading />}
     </ThemeProvider>
   );
 };

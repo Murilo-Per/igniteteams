@@ -5,6 +5,7 @@ export const Input = styled(TextInput).attrs(({ theme }) => ({
   placeholderTextColor: theme.COLORS.GRAY_300,
   cursorColor: theme.COLORS.GREEN_500
 }))`
+  flex:1;
   min-height: 56px;
   max-height: 56px;
 
@@ -16,6 +17,5 @@ export const Input = styled(TextInput).attrs(({ theme }) => ({
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
   font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
 
-  margin-bottom: 24px;
   padding-left: 16px;
 `;
