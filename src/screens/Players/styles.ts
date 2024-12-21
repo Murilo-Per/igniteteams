@@ -14,3 +14,9 @@ export const Form = styled.View`
   
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
 `;
+
+export const FilterHeader = styled.View`
+  flex-direction: row;
+  margin-bottom: 24px;
+  margin-top: 32px;
+`;
