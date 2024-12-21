@@ -1,15 +1,22 @@
+import { useState } from 'react';
+import { FlatList } from 'react-native';
+
+import { Container, Form, FilterHeader } from './styles';
+
 import Header from '@components/Header';
-import { Container, Form } from './styles';
+import Filter from '@components/Filter';
 import Highlight from '@components/Highlight';
 import InputText from '@components/Input';
+import EmptyList from '@components/EmptyList';
+import PlayerCard from '@components/PlayerCard';
 import ButtonAction from '@components/ButtonAction';
-import Filter from '@components/Filter';
-import { FlatList } from 'react-native';
-import { useState } from 'react';
+import { EmptyMessage } from '@utils/constants';
+import Button from '@components/Button';
 
 
 export default function Players() {
   const [teams, setTeams] = useState<string>('Time A');
+  const [players, setplayers] = useState<string[]>([]);
 
   return (
     <Container>
@@ -26,19 +33,47 @@ export default function Players() {
         <ButtonAction icon="add" />
       </Form>
 
+      <FilterHeader>
+        <FlatList
+          data={['Time A', 'Time B']}
+          keyExtractor={item => item}
+          renderItem={({ item }) => (
+            <Filter
+              caption={item}
+              isActive={item === teams}
+              onPress={() => setTeams(item)}
+            />
+          )}
+          horizontal
+        />
+      </FilterHeader>
+
       <FlatList
-        data={['Time A', 'Time B']}
+        data={players}
         keyExtractor={item => item}
         renderItem={({ item }) => (
-          <Filter
-            caption={item}
-            isActive={item === teams}
-            onPress={() => setTeams(item)}
+          <PlayerCard
+            name={item}
+            onRemove={() => { }}
           />
         )}
-        horizontal
+        ListEmptyComponent={() => (
+          <EmptyList
+            text={EmptyMessage}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={[
+          { paddingBottom: 100 },
+          players.length === 0 && { flex: 1 }
+        ]}
+
       />
 
+      <Button
+        caption='Remover turma'
+        buttonType='DELETE'
+      />
     </Container>
   );
 }
