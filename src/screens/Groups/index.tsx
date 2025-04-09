@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 import { FlatList } from 'react-native';
+import { RootStackParamList } from 'src/@types/navigation';
 
 import { Container } from './styles';
 import { EmptyMessage } from '@utils/constants';
@@ -13,6 +16,11 @@ import Button from '@components/Button';
 
 export default function Groups() {
   const [groups, setGroups] = useState<string[]>(['Trabalho']);
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  function handleNewGroup() {
+    navigation.push('newGroup');
+  }
 
   return (
     <Container>
@@ -38,7 +46,10 @@ export default function Groups() {
           />
         )}
       />
-      <Button caption="Criar nova turma" />
+      <Button
+        caption="Criar nova turma"
+        onPress={handleNewGroup}
+      />
 
     </Container>
   );

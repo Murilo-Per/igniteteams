@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FlatList } from 'react-native';
+import { StaticScreenProps } from '@react-navigation/native';
 
 import { Container, Form, FilterHeader } from './styles';
 
@@ -13,16 +14,20 @@ import ButtonAction from '@components/ButtonAction';
 import { EmptyMessage } from '@utils/constants';
 import Button from '@components/Button';
 
+type Props = StaticScreenProps<{
+  groupName: string;
+}>
 
-export default function Players() {
+export default function Players({ route }: Props) {
   const [teams, setTeams] = useState<string>('Time A');
   const [players, setplayers] = useState<string[]>([]);
+  const { groupName } = route.params;
 
   return (
     <Container>
       <Header showBackButton />
       <Highlight
-        title="Nome da Turma"
+        title={groupName}
         subTitle="adicione a galera e separe os times"
       />
       <Form>
