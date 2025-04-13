@@ -12,14 +12,14 @@ type Props = {
 export default function Header({ title, showBackButton = false, ...props }: Props) {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  function handleScreenBack() {
-    navigation.goBack();
+  function handleScreenGoBack() {
+    navigation.navigate('groups');
   }
 
   return (
     <Container>
       {showBackButton &&
-        <BackButton onPress={handleScreenBack}>
+        <BackButton onPress={handleScreenGoBack}>
           <BackIcon />
         </BackButton>
       }

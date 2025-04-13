@@ -19,6 +19,7 @@ export const Container = styled(TouchableOpacity) <Props>`
   align-items: center;
 
   background-color: ${({ theme, type }) => type === 'SUCCESS' ? theme.COLORS.GREEN_500 : theme.COLORS.RED_DARK};
+  margin-top: 16px;
 `;
 
 export const Caption = styled.Text`

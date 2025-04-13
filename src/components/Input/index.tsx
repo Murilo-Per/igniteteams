@@ -1,8 +1,16 @@
-import { TextInputProps } from 'react-native';
+import { TextInput, TextInputProps } from 'react-native';
 import { Input } from './styles';
+import React from 'react';
 
-export default function InputText(prop: TextInputProps) {
+type Props = TextInputProps & {
+  inputRef?: React.RefObject<TextInput>
+}
+
+export default function InputText({ inputRef, ...rest }: Props) {
   return (
-    <Input {...prop} />
+    <Input
+      ref={inputRef}
+      {...rest}
+    />
   );
 }
